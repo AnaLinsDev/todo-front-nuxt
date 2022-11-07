@@ -1,51 +1,32 @@
 [
   {
-    "name": "register",
-    "path": "/register",
-    "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\register.vue",
-    "chunkName": "pages/register",
-    "_name": "_cd0256e6"
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\login.vue",
+    "chunkName": "pages/login"
   },
   {
     "name": "task-edit",
     "path": "/task/edit",
     "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\task\\\\edit.vue",
-    "chunkName": "pages/task/edit",
-    "_name": "_6bbf7ab9"
+    "chunkName": "pages/task/edit"
   },
   {
     "name": "task-read",
     "path": "/task/read",
     "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\task\\\\read.vue",
-    "chunkName": "pages/task/read",
-    "_name": "_4ee67f76"
+    "chunkName": "pages/task/read"
   },
   {
     "name": "task-readAll",
     "path": "/task/readAll",
     "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\task\\\\readAll.vue",
-    "chunkName": "pages/task/readAll",
-    "_name": "_026afa68"
-  },
-  {
-    "name": "user-edit",
-    "path": "/user/edit",
-    "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\user\\\\edit.vue",
-    "chunkName": "pages/user/edit",
-    "_name": "_8d44dd02"
+    "chunkName": "pages/task/readAll"
   },
   {
     "name": "user-profile",
     "path": "/user/profile",
     "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\user\\\\profile.vue",
-    "chunkName": "pages/user/profile",
-    "_name": "_4861de78"
-  },
-  {
-    "name": "index",
-    "path": "/",
-    "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_3606a6d8"
+    "chunkName": "pages/user/profile"
   }
 ]

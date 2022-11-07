@@ -1,5 +1,5 @@
 <template>
-  <v-card class="card">
+  <v-card class="card pa-6" rounded max-width="800">
     <h1 v-if="isLogin">Login</h1>
     <h1 v-else>Register</h1>
 
@@ -35,13 +35,13 @@
       {{ error }}
     </div>
 
-    <div class="d-flex flex-column" v-if="isLogin">
+    <div class="d-flex justify-center" v-if="isLogin">
       <v-btn class="btn-green" :disabled="!valid" @click="login"> Login </v-btn>
 
       <v-btn text @click="isLogin = false"> Go to Register </v-btn>
     </div>
 
-    <div class="d-flex flex-column" v-else>
+    <div class="d-flex justify-center" v-else>
       <v-btn class="btn-green" :disabled="!valid" @click="register">
         Register
       </v-btn>
@@ -53,8 +53,10 @@
 
 <script>
 import { mapActions } from "vuex";
+import MixinRules from "@/mixins/MixinRules.vue";
 
 export default {
+  mixins: [MixinRules],
   data() {
     return {
       isLogin: true,
@@ -62,19 +64,9 @@ export default {
       valid: false,
       user: {
         name: "",
-        email: "",
-        password: "",
-      },
-      rules: {
-        required: (value) => !!value || "Required.",
-        counter_min_3: (value) => value.length >= 3 || "Max 3 characters",
-        counter_min_6: (value) => value.length >= 6 || "Max 6 characters",
-        email: (value) => {
-          const pattern =
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return pattern.test(value) || "Invalid e-mail.";
-        },
-      },
+        email: "aaa@gmail.com",
+        password: "aaaaaa",
+      }
     };
   },
 
@@ -93,6 +85,7 @@ export default {
       delete this.user["name"];
       this.loginUser(this.user)
         .then(() => {
+          this.$router.push('/task/readAll')
           this.error = "";
         })
         .catch((err) => (this.error = err.response?.data.message));
@@ -110,17 +103,9 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: rgb(12, 148, 98);
-  background-attachment: fixed;
-  background-size: cover;
-}
-
 .card {
   text-align: center;
-  margin: 250px auto;
-  width: 800px;
-  padding: 20px;
+  margin: 150px auto;
 }
 
 .text-field {

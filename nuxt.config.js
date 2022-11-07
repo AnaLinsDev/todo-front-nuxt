@@ -3,6 +3,8 @@ export default {
 
   target: "static",
 
+  components: true,
+
   buildModules: ["@nuxtjs/vuetify"],
 
   publicRuntimeConfig: {
@@ -11,5 +13,7 @@ export default {
     },
   },
 
-  modules: ["@nuxtjs/axios"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth-next"],
+
+  css: ["~/assets/css/main.css"],
 };

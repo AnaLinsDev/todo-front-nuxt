@@ -1,59 +1,65 @@
 export const state = () => ({
-  user: {
-    id: -1,
-    name: "",
-    email: "",
-    token: "",
-  },
+  loggedIn: false,
 });
 
 export const actions = {
-  login(context, userData) {
+  getCurrentUser({ commit }) {
+    var auth = localStorage.getItem("auth");
+    if (auth) {
+      commit("loggedIn", true);
+    }
+    return JSON.parse(auth);
+  },
+
+  getUserById({ commit }, id) {
+    return this.$axios.$get(`/users/${id}`);
+  },
+
+  login({ commit }, userData) {
     let res = this.$axios.post("/user/login", userData).then((resp) => {
-      context.commit("setUserData", resp.data);
+      localStorage.setItem("auth", JSON.stringify(resp.data)),
+        commit("loggedIn", true);
+      this.$router.push('/task/readAll');
       this.$axios.setToken(resp.data.token);
     });
     return res;
   },
 
-  register(context, userData) {
+  logout() {
+    localStorage.removeItem("auth");
+    this.$axios.setToken(null);
+  },
+
+  register({ commit }, userData) {
     let res = this.$axios.post("/user", userData).then((resp) => {
-      context.commit("setUserData", resp.data);
+      localStorage.setItem("auth", JSON.stringify(resp.data)),
+        commit("loggedIn", true);
       this.$axios.setToken(resp.data.token);
     });
     return res;
   },
 
-  edit(context, userData) {
-    context.commit("edit", userData);
+  edit({ commit }, userData) {
+    const id = userData.id;
+    delete userData.id;
+    let res = this.$axios.put(`/user/${id}`, userData).then((resp) => {
+      localStorage.setItem("auth", JSON.stringify(resp.data)),
+        commit("loggedIn", true);
+    });
+    return res;
   },
 
-  delete(context, userData) {
-    context.commit("delete", userData);
-  },
-
-  profile(context, userData) {
-    context.commit("profile", userData);
+  delete({ commit }, userData) {
+    const id = userData.id;
+    delete userData.id;
+    localStorage.removeItem("auth");
+    this.$axios.setToken(null);
+    return this.$axios.delete(`/user/${id}`, userData);
   },
 };
 
 export const mutations = {
-  setUserData(state, userData) {
-    state.user.id = userData.id;
-    state.user.name = userData.name;
-    state.user.email = userData.email;
-    state.user.token = userData.token;
-  },
-
-  edit(state, userData) {
-    console.log(userData);
-  },
-
-  delete(state, userData) {
-    console.log(userData);
-  },
-
-  profile(state, userData) {
-    console.log(userData);
+  loggedIn(state, value) {
+    state.loggedIn = value;
   },
 };

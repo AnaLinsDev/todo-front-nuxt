@@ -4,13 +4,11 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _cd0256e6 = () => interopDefault(import('..\\pages\\register.vue' /* webpackChunkName: "pages/register" */))
+const _00a36c22 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
 const _6bbf7ab9 = () => interopDefault(import('..\\pages\\task\\edit.vue' /* webpackChunkName: "pages/task/edit" */))
 const _4ee67f76 = () => interopDefault(import('..\\pages\\task\\read.vue' /* webpackChunkName: "pages/task/read" */))
 const _026afa68 = () => interopDefault(import('..\\pages\\task\\readAll.vue' /* webpackChunkName: "pages/task/readAll" */))
-const _8d44dd02 = () => interopDefault(import('..\\pages\\user\\edit.vue' /* webpackChunkName: "pages/user/edit" */))
 const _4861de78 = () => interopDefault(import('..\\pages\\user\\profile.vue' /* webpackChunkName: "pages/user/profile" */))
-const _3606a6d8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -24,9 +22,9 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/register",
-    component: _cd0256e6,
-    name: "register"
+    path: "/login",
+    component: _00a36c22,
+    name: "login"
   }, {
     path: "/task/edit",
     component: _6bbf7ab9,
@@ -40,17 +38,9 @@ export const routerOptions = {
     component: _026afa68,
     name: "task-readAll"
   }, {
-    path: "/user/edit",
-    component: _8d44dd02,
-    name: "user-edit"
-  }, {
     path: "/user/profile",
     component: _4861de78,
     name: "user-profile"
-  }, {
-    path: "/",
-    component: _3606a6d8,
-    name: "index"
   }],
 
   fallback: false
