@@ -2,15 +2,15 @@
   <v-dialog v-model="dialog" max-width="400">
     <v-card class="d-flex flex-column justify-space-between pa-10" height="300">
       <h2>
-        {{ text }} <br />
+        Confirm to <span class="error-text">DELETE</span> {{ text }}: <br />
         {{ name }}
       </h2>
       <span class="d-flex justify-space-between">
-        <v-btn class="error" @click="confirm">Confirm</v-btn>
         <v-btn text @click="cancel">
           Cancel
           <v-icon dark right> mdi-cancel </v-icon>
         </v-btn>
+        <v-btn class="error" @click="confirm">Confirm</v-btn>
       </span>
     </v-card>
   </v-dialog>
@@ -57,3 +57,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.error-text {
+  color: #ff5252;
+}
+</style>

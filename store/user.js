@@ -20,21 +20,19 @@ export const actions = {
       localStorage.setItem("auth", JSON.stringify(resp.data)),
         commit("loggedIn", true);
       this.$router.push('/task/readAll');
-      this.$axios.setToken(resp.data.token);
     });
     return res;
   },
 
   logout() {
     localStorage.removeItem("auth");
-    this.$axios.setToken(null);
   },
 
   register({ commit }, userData) {
     let res = this.$axios.post("/user", userData).then((resp) => {
       localStorage.setItem("auth", JSON.stringify(resp.data)),
         commit("loggedIn", true);
-      this.$axios.setToken(resp.data.token);
+      this.$router.push('/task/readAll');
     });
     return res;
   },
@@ -51,10 +49,9 @@ export const actions = {
 
   delete({ commit }, userData) {
     const id = userData.id;
-    delete userData.id;
     localStorage.removeItem("auth");
-    this.$axios.setToken(null);
-    return this.$axios.delete(`/user/${id}`, userData);
+    commit("loggedIn", false);
+    return this.$axios.delete(`/user/${id}`);
   },
 };
 
@@ -63,3 +60,12 @@ export const mutations = {
     state.loggedIn = value;
   },
 };
+
+
+export const getUser = () => {
+  var auth = localStorage.getItem("auth");
+  if (auth) {
+    return JSON.parse(auth);
+  }
+  this.$router.push('/login');
+}

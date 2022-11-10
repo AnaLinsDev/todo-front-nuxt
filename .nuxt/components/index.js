@@ -1,4 +1,7 @@
+export { default as MenuBar } from '../..\\components\\MenuBar.vue'
 export { default as ModalDeleteConfirm } from '../..\\components\\ModalDeleteConfirm.vue'
+export { default as TaskModalAddTask } from '../..\\components\\task\\ModalAddTask.vue'
+export { default as TaskModalInfoTask } from '../..\\components\\task\\ModalInfoTask.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

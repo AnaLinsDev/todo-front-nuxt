@@ -5,8 +5,6 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _00a36c22 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
-const _6bbf7ab9 = () => interopDefault(import('..\\pages\\task\\edit.vue' /* webpackChunkName: "pages/task/edit" */))
-const _4ee67f76 = () => interopDefault(import('..\\pages\\task\\read.vue' /* webpackChunkName: "pages/task/read" */))
 const _026afa68 = () => interopDefault(import('..\\pages\\task\\readAll.vue' /* webpackChunkName: "pages/task/readAll" */))
 const _4861de78 = () => interopDefault(import('..\\pages\\user\\profile.vue' /* webpackChunkName: "pages/user/profile" */))
 
@@ -25,14 +23,6 @@ export const routerOptions = {
     path: "/login",
     component: _00a36c22,
     name: "login"
-  }, {
-    path: "/task/edit",
-    component: _6bbf7ab9,
-    name: "task-edit"
-  }, {
-    path: "/task/read",
-    component: _4ee67f76,
-    name: "task-read"
   }, {
     path: "/task/readAll",
     component: _026afa68,

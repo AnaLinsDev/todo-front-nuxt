@@ -1,5 +1,14 @@
 {
+  "MenuBar": {
+    "description": "Auto imported from components/MenuBar.vue"
+  },
   "ModalDeleteConfirm": {
     "description": "Auto imported from components/ModalDeleteConfirm.vue"
+  },
+  "TaskModalAddTask": {
+    "description": "Auto imported from components/task/ModalAddTask.vue"
+  },
+  "TaskModalInfoTask": {
+    "description": "Auto imported from components/task/ModalInfoTask.vue"
   }
 }

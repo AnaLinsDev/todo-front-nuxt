@@ -2,7 +2,7 @@
   <div>
     <ModalDeleteConfirm
       :open-dialog="modalDelete"
-      text="Confirm to delete User"
+      text="User"
       :name="user.name"
       @confirm="deleteAccount"
       @close="modalDelete = false"

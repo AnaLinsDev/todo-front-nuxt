@@ -3,30 +3,21 @@
     "name": "login",
     "path": "/login",
     "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\login.vue",
-    "chunkName": "pages/login"
-  },
-  {
-    "name": "task-edit",
-    "path": "/task/edit",
-    "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\task\\\\edit.vue",
-    "chunkName": "pages/task/edit"
-  },
-  {
-    "name": "task-read",
-    "path": "/task/read",
-    "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\task\\\\read.vue",
-    "chunkName": "pages/task/read"
+    "chunkName": "pages/login",
+    "_name": "_00a36c22"
   },
   {
     "name": "task-readAll",
     "path": "/task/readAll",
     "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\task\\\\readAll.vue",
-    "chunkName": "pages/task/readAll"
+    "chunkName": "pages/task/readAll",
+    "_name": "_026afa68"
   },
   {
     "name": "user-profile",
     "path": "/user/profile",
     "component": "C:\\\\Users\\\\Ana Júlia Lins\\\\Desktop\\\\Linkedin\\\\TODO_Nuxt\\\\Front\\\\pages\\\\user\\\\profile.vue",
-    "chunkName": "pages/user/profile"
+    "chunkName": "pages/user/profile",
+    "_name": "_4861de78"
   }
 ]

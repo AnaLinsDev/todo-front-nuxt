@@ -15,5 +15,9 @@ export default {
 
   modules: ["@nuxtjs/axios", "@nuxtjs/auth-next"],
 
+  plugins: [
+    '~/plugins/axios'
+  ],
+
   css: ["~/assets/css/main.css"],
 };
