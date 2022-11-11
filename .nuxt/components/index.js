@@ -1,3 +1,4 @@
+export { default as AlertGlobal } from '../..\\components\\AlertGlobal.vue'
 export { default as MenuBar } from '../..\\components\\MenuBar.vue'
 export { default as ModalDeleteConfirm } from '../..\\components\\ModalDeleteConfirm.vue'
 export { default as TaskModalAddTask } from '../..\\components\\task\\ModalAddTask.vue'

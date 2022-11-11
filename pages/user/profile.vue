@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 import ModalDeleteConfirm from "../../components/ModalDeleteConfirm.vue";
 import MixinRules from "@/mixins/MixinRules.vue";
 
@@ -105,15 +105,9 @@ export default {
     };
   },
 
-  computed: {
-    ...mapState("user", {
-      currentUser: (state) => state.user,
-    }),
-  },
 
   watch: {
     isProfile() {
-      this.user = Object.assign({}, this.currentUser);
       this.user.password = "";
       this.error = "";
     },
@@ -124,12 +118,13 @@ export default {
   },
 
   mounted() {
-    this.user = Object.assign({}, this.currentUser);
+    this.getUser().then((resp) => this.user = resp)
     this.user.password = "";
   },
 
   methods: {
     ...mapActions({
+      getUser: "user/getCurrentUser",
       editUser: "user/edit",
       deleteUser: "user/delete",
     }),
@@ -152,17 +147,11 @@ export default {
           this.isProfile = true
           this.error = "";
         })
-        .catch((err) => (this.error = err.response?.data.message));
       }
     },
 
     deleteAccount() {
       this.deleteUser(this.user)
-        .then((resp) => {
-          console.log(resp)
-          this.error = "";
-        })
-        .catch((err) => (this.error = err.response?.data.message));
     },
   },
 };

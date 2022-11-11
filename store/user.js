@@ -11,6 +11,7 @@ export const actions = {
     return JSON.parse(auth);
   },
 
+
   getUserById({ commit }, id) {
     return this.$axios.$get(`/users/${id}`);
   },
@@ -24,8 +25,9 @@ export const actions = {
     return res;
   },
 
-  logout() {
+  logout({ commit }) {
     localStorage.removeItem("auth");
+    commit("loggedIn", false);
   },
 
   register({ commit }, userData) {
@@ -51,7 +53,8 @@ export const actions = {
     const id = userData.id;
     localStorage.removeItem("auth");
     commit("loggedIn", false);
-    return this.$axios.delete(`/user/${id}`);
+    this.$axios.delete(`/user/${id}`);
+    this.$router.push('/login');
   },
 };
 

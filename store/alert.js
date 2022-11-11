@@ -1,7 +1,7 @@
 export const state = () => ({
   text: '',
   open: false,
-  type: ''
+  type: 'error'
 });
 
 export const mutations = {

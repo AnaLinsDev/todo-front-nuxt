@@ -1,4 +1,7 @@
 {
+  "AlertGlobal": {
+    "description": "Auto imported from components/AlertGlobal.vue"
+  },
   "MenuBar": {
     "description": "Auto imported from components/MenuBar.vue"
   },

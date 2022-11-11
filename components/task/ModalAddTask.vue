@@ -9,17 +9,19 @@
       <v-card :loading="loadingData" elevation="0">
         <span class="mt-6">
           <v-container>
-            <v-row class="ma-0">
+            <v-form ref="form" v-model="valid">
+              <v-row class="ma-0">
               <v-col class="py-0">
-                <label for="title">Title</label>
+                <label for="title">Title *</label>
                 <v-text-field
                   v-model="taskAdded.title"
                   placeholder="Title"
+                  :rules="[rules.required]"
                   solo
                 />
               </v-col>
               <v-col class="py-0">
-                <label for="Remember">Todo Until Date</label>
+                <label for="Remember">Todo Until Date *</label>
                 <v-menu
                   v-model="menu"
                   :close-on-content-click="false"
@@ -33,6 +35,7 @@
                       v-model="date"
                       prepend-inner-icon="mdi-calendar"
                       readonly
+                      :rules="[rules.required]"
                       solo
                       v-bind="attrs"
                       v-on="on"
@@ -45,12 +48,13 @@
                 </v-menu>
               </v-col>
               <v-col class="py-0">
-                <label for="Remember">Todo Until Time</label>
+                <label for="Remember">Todo Until Time *</label>
                 <v-menu
                   ref="menu"
                   v-model="menu2"
                   :close-on-content-click="false"
                   :nudge-right="40"
+                  :rules="[rules.required]"
                   :return-value.sync="time"
                   transition="scale-transition"
                   offset-y
@@ -62,6 +66,7 @@
                       v-model="time"
                       prepend-inner-icon="mdi-clock-time-four-outline"
                       readonly
+                      :rules="[rules.required]"
                       solo
                       v-bind="attrs"
                       v-on="on"
@@ -79,7 +84,7 @@
             </v-row>
             <v-row class="ma-0">
               <v-col class="py-0">
-                <label for="Remember">Status</label>
+                <label for="Remember">Status *</label>
                 <v-radio-group v-model="taskAdded.done" row>
                   <v-radio
                     v-for="n in [
@@ -87,13 +92,14 @@
                       { value: true, text: 'DONE' },
                     ]"
                     :key="n.value"
+                    :rules="[rules.required]"
                     :label="`${n.text}`"
                     :value="n.value"
                   ></v-radio>
                 </v-radio-group>
               </v-col>
               <v-col class="py-0">
-                <label for="Remember">Remember me</label>
+                <label for="Remember">Remember me *</label>
                 <v-radio-group v-model="taskAdded.remember" row>
                   <v-radio
                     v-for="n in [
@@ -101,6 +107,7 @@
                       { value: false, text: 'No' },
                     ]"
                     :key="n.value"
+                    :rules="[rules.required]"
                     :label="`${n.text}`"
                     :value="n.value"
                   ></v-radio>
@@ -110,21 +117,23 @@
             </v-row>
             <v-row class="ma-0">
               <v-col class="py-0">
-                <label for="description">Description</label>
+                <label for="description">Description *</label>
                 <v-textarea
                   v-model="taskAdded.description"
                   solo
+                  :rules="[rules.required]"
                   name="input-7-4"
                   label="Description"
                 />
               </v-col>
             </v-row>
+            </v-form>
           </v-container>
         </span>
       </v-card>
       <span class="d-flex justify-space-between">
         <v-btn text @click="reset"> Reset </v-btn>
-        <v-btn class="success" @click="confirm"> Save </v-btn>
+        <v-btn class="success" :disabled="!valid" @click="confirm"> Save </v-btn>
       </span>
     </v-card>
   </v-dialog>
@@ -132,9 +141,11 @@
 
 <script>
 import { mapActions } from "vuex";
+import MixinRules from "@/mixins/MixinRules.vue";
 
 export default {
   name: "ModalInfoTask",
+  mixins: [MixinRules],
   props: {
     task: {
       type: Object,
@@ -151,6 +162,7 @@ export default {
       dialog: false,
       menu: false,
       menu2: false,
+      valid: true,
       date: "",
       time: "",
       defaultTask: {},
@@ -214,11 +226,12 @@ export default {
       return task;
     },
 
-    confirm() {
+    async confirm() {
       const task = this.prepareRequest(this.taskAdded);
-      this.addTask(task)
+      await this.addTask(task)
       this.$emit("close");
     },
+    
 
     close() {
       this.date = "";
