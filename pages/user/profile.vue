@@ -52,7 +52,6 @@
                 type="password"
                 solo
               />
-              {{ user.password.length == 0 }}
             </span>
           </v-col>
         </v-form>
